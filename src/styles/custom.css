@@ -1,0 +1,137 @@
+/* ==========================================================================
+   TanStack Start Handbook — theme
+   Direction: "field manual" — a dark, warm-neutral technical reference with
+   a single amber signal color and IBM Plex type (Mono for structure/code,
+   Sans for prose). Signature device: schematic corner-bracket framing on
+   code blocks, diagrams, and asides — marking them as reference artifacts.
+   ========================================================================== */
+
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import '@fontsource/ibm-plex-mono/700.css';
+
+/* -- Fonts ---------------------------------------------------------------- */
+
+:root {
+	--sl-font: 'IBM Plex Sans', var(--sl-font-system);
+	--sl-font-mono: 'IBM Plex Mono', var(--sl-font-system-mono);
+}
+
+/* -- Color tokens (dark mode is the primary, default surface) ------------- */
+
+:root,
+::backdrop {
+	--sl-color-white: #e7e5de;
+	--sl-color-gray-1: #c9c6bc;
+	--sl-color-gray-2: #a6a398;
+	--sl-color-gray-3: #83807a;
+	--sl-color-gray-4: #55524a;
+	--sl-color-gray-5: #24262d;
+	--sl-color-gray-6: #171a21;
+	--sl-color-black: #0d0f13;
+
+	--sl-color-accent-low: #3a2a12;
+	--sl-color-accent: #e8a33d;
+	--sl-color-accent-high: #f4c878;
+
+	--signal: #e8a33d;
+}
+
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-white: #1b1b18;
+	--sl-color-gray-1: #2b2a26;
+	--sl-color-gray-2: #4a4842;
+	--sl-color-gray-3: #6e6b62;
+	--sl-color-gray-4: #a19c8e;
+	--sl-color-gray-5: #dbd6c8;
+	--sl-color-gray-6: #efebdd;
+	--sl-color-black: #f7f4ec;
+
+	--sl-color-accent-low: #f1dfb8;
+	--sl-color-accent: #a85f0a;
+	--sl-color-accent-high: #7a4207;
+
+	--signal: #a85f0a;
+}
+
+/* -- Typography ------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--sl-font-mono);
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+/* -- Signature device: schematic corner brackets --------------------------
+   Applied to code blocks, mermaid diagrams, and asides — the site's
+   "reference artifact" containers. Not used on plain prose. */
+
+.expressive-code,
+.mermaid,
+.starlight-aside {
+	position: relative;
+	background-image:
+		linear-gradient(to right, var(--signal) 2px, transparent 2px),
+		linear-gradient(to bottom, var(--signal) 2px, transparent 2px),
+		linear-gradient(to left, var(--signal) 2px, transparent 2px),
+		linear-gradient(to bottom, var(--signal) 2px, transparent 2px),
+		linear-gradient(to left, var(--signal) 2px, transparent 2px),
+		linear-gradient(to top, var(--signal) 2px, transparent 2px),
+		linear-gradient(to right, var(--signal) 2px, transparent 2px),
+		linear-gradient(to top, var(--signal) 2px, transparent 2px);
+	background-size:
+		14px 2px,
+		2px 14px,
+		14px 2px,
+		2px 14px,
+		14px 2px,
+		2px 14px,
+		14px 2px,
+		2px 14px;
+	background-position:
+		top left,
+		top left,
+		top right,
+		top right,
+		bottom right,
+		bottom right,
+		bottom left,
+		bottom left;
+	background-repeat: no-repeat;
+	transition: filter 150ms ease;
+}
+
+.expressive-code:hover,
+.mermaid:hover {
+	filter: brightness(1.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.expressive-code,
+	.mermaid {
+		transition: none;
+	}
+}
+
+/* -- Hero texture: subtle dot-grid, splash page only ----------------------- */
+
+.hero {
+	position: relative;
+	background-image: radial-gradient(color-mix(in srgb, var(--signal) 35%, transparent) 1px, transparent 1px);
+	background-size: 24px 24px;
+	background-position: center;
+	-webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+	mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+.hero > * {
+	position: relative;
+}

@@ -12,10 +12,32 @@ export default defineConfig({
 	base: `/${REPO_NAME}`,
 	integrations: [
 		// must come before starlight()
-		mermaid({ theme: 'forest' }),
+		mermaid({
+			theme: 'base',
+			autoTheme: true,
+			mermaidConfig: {
+				themeVariables: {
+					fontFamily: '"IBM Plex Mono", monospace',
+					background: '#0d0f13',
+					mainBkg: '#171a21',
+					primaryColor: '#171a21',
+					primaryTextColor: '#e7e5de',
+					primaryBorderColor: '#e8a33d',
+					lineColor: '#e8a33d',
+					secondaryColor: '#24262d',
+					tertiaryColor: '#0d0f13',
+					textColor: '#e7e5de',
+				},
+			},
+		}),
 		starlight({
 			title: 'TanStack Start Handbook',
 			description: 'An intermediate-to-advanced handbook for TanStack Start: rendering, server functions, state, patterns, and deployment.',
+			logo: {
+				light: './src/assets/logo-light.svg',
+				dark: './src/assets/logo-dark.svg',
+			},
+			customCss: ['./src/styles/custom.css'],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}` },
 			],
