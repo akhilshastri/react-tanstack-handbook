@@ -1,0 +1,36 @@
+---
+title: TanStack Start Handbook
+description: An intermediate-to-advanced handbook for TanStack Start.
+template: splash
+hero:
+  tagline: Rendering, server functions, state, real-world patterns, and deployment — for developers who already know React.
+  actions:
+    - text: Start reading
+      link: /00-orientation/01-why-tanstack-start/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/akhilshastri/react-tanstack-handbook
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What's inside
+
+<CardGrid stagger>
+	<Card title="Core mechanics" icon="rocket">
+		Rendering, streaming, server functions, middleware, and security — grounded in the current docs, not stale tutorials.
+	</Card>
+	<Card title="State & data" icon="puzzle">
+		TanStack Query, TanStack DB, and where Zustand or Jotai actually fit — with honest notes on what's official vs. inferred.
+	</Card>
+	<Card title="Real patterns" icon="setting">
+		Recipes for CMS, trading/real-time, and ERP-style apps — what to render where, and what to avoid.
+	</Card>
+	<Card title="Deployment" icon="open-book">
+		A decision matrix plus worked examples, not a tour of every provider's docs.
+	</Card>
+</CardGrid>
+
+This handbook assumes you already know React and have used a meta-framework (Next.js, Remix) or TanStack Router/Query before — it does not re-explain what a component is.
