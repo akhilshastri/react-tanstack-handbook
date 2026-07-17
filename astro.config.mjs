@@ -5,6 +5,8 @@ import mermaid from 'astro-mermaid';
 
 const GITHUB_USERNAME = 'akhilshastri';
 const REPO_NAME = 'react-tanstack-handbook';
+const SITE_URL = `https://${GITHUB_USERNAME}.github.io/${REPO_NAME}`;
+const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,6 +42,21 @@ export default defineConfig({
 			customCss: ['./src/styles/custom.css'],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: `https://github.com/${GITHUB_USERNAME}/${REPO_NAME}` },
+			],
+			head: [
+				{ tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
+				{ tag: 'meta', attrs: { property: 'og:title', content: 'TanStack Start Handbook' } },
+				{
+					tag: 'meta',
+					attrs: {
+						property: 'og:description',
+						content: 'Rendering, server functions, state, real-world patterns, and deployment — for developers who already know React.',
+					},
+				},
+				{ tag: 'meta', attrs: { property: 'og:image', content: OG_IMAGE_URL } },
+				{ tag: 'meta', attrs: { property: 'og:url', content: `${SITE_URL}/` } },
+				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: OG_IMAGE_URL } },
 			],
 			sidebar: [
 				{
