@@ -125,6 +125,18 @@ h4 {
 
 .hero {
 	position: relative;
+}
+
+/* the dot-grid + mask live on a background-only pseudo-element — applying
+   mask-image to .hero directly would mask the actual title/button content,
+   not just the decorative background (this was a real bug: it faded and
+   clipped the hero text/buttons on one side). */
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
 	background-image: radial-gradient(color-mix(in srgb, var(--signal) 35%, transparent) 1px, transparent 1px);
 	background-size: 24px 24px;
 	background-position: center;
@@ -134,4 +146,5 @@ h4 {
 
 .hero > * {
 	position: relative;
+	z-index: 1;
 }
