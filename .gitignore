@@ -21,3 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 plan/
+
+# local-only: LinkedIn scheduler and promo content, never pushed
+scripts/
+social/
