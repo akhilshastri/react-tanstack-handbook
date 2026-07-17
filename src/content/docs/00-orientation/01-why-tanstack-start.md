@@ -15,7 +15,7 @@ The difference is philosophy, not feature count.
 
 Next.js's App Router treats the server as the owner of your component tree. Your components run there by default, and the client is where you opt *in* to interactivity (`'use client'`).
 
-TanStack Start flips that. The **router owns the app**. Server rendering, data loading, and (optionally) server components are things the router does *for* a route, not a mode the whole app lives in. Every route decides for itself how much of it runs on the server — see [Part 2](/02-rendering-model/) for the actual mechanism (`ssr: true`, `'data-only'`, `false`).
+TanStack Start flips that. The **router owns the app**. Server rendering, data loading, and (optionally) server components are things the router does *for* a route, not a mode the whole app lives in. Every route decides for itself how much of it runs on the server — see [selective SSR](../../02-rendering-model/03-selective-ssr/) for the actual mechanism (`ssr: true`, `'data-only'`, `false`).
 
 ```mermaid
 graph TD
